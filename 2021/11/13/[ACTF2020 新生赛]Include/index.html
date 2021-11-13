@@ -22,25 +22,30 @@
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wind-crow.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="一个热爱渗透的菜鸟博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MyBlog">
-<meta property="og:url" content="https://wind-crow.github.io/archives/index.html">
+<meta name="description" content="​        这个题主要考查的是php封装协议。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ACTF2020新生赛Include">
+<meta property="og:url" content="https://wind-crow.github.io/2021/11/13/[ACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B]Include/index.html">
 <meta property="og:site_name" content="MyBlog">
-<meta property="og:description" content="一个热爱渗透的菜鸟博客">
+<meta property="og:description" content="​        这个题主要考查的是php封装协议。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-13T14:35:37.000Z">
+<meta property="article:modified_time" content="2021-11-13T15:18:09.953Z">
 <meta property="article:author" content="wind-crow">
+<meta property="article:tag" content="web练习题">
+<meta property="article:tag" content="BUUCTF">
+<meta property="article:tag" content="文件包含">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://wind-crow.github.io/archives/">
+<link rel="canonical" href="https://wind-crow.github.io/2021/11/13/[ACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B]Include/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"archives/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wind-crow.github.io/2021/11/13/[ACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B]Include/","path":"2021/11/13/[ACTF2020 新生赛]Include/","title":"ACTF2020新生赛Include"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>归档 | MyBlog</title>
+<title>ACTF2020新生赛Include | MyBlog</title>
   
 
 
@@ -203,129 +208,142 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 5 篇日志。 继续努力。</span>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wind-crow.github.io/2021/11/13/[ACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B]Include/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wind-crow">
+      <meta itemprop="description" content="一个热爱渗透的菜鸟博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MyBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ACTF2020新生赛Include
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+
+      <time title="创建时间：2021-11-13 22:35:37 / 修改时间：23:18:09" itemprop="dateCreated datePublished" datetime="2021-11-13T22:35:37+08:00">2021-11-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ctf%E4%B9%A0%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">ctf习题</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>599</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>​        这个题主要考查的是php封装协议。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
+<span id="more"></span>
+
+<ul>
+<li><p>首先 F12 查看网页前端源码，没有什么隐藏信息</p>
+</li>
+<li><p>然后用Burp Suite抓包，也没发现有什么页面跳转，如下图所示    </p>
+</li>
+</ul>
+<p>![image-20211113224115711]([ACTF2020 新生赛]Include/image-20211113224115711.png)      </p>
+<ul>
+<li><p>发现它文件包含的文件名是flag.php，还提问你能发现flag。猜测flag在这个flag.php文件中，但是前端没有显示，所以尝试把flag.php源码输出</p>
+</li>
+<li><p>构建payload：<a target="_blank" rel="noopener" href="http://c6220dd2-f0d2-4a5b-919b-b9b6ce8c077f.node4.buuoj.cn:81/?file=php://filter/read=convert.base64-encode/resource=flag.php%EF%BC%8C">http://c6220dd2-f0d2-4a5b-919b-b9b6ce8c077f.node4.buuoj.cn:81/?file=php://filter/read=convert.base64-encode/resource=flag.php，</a></p>
+</li>
+<li><p>如果不理解这个payload可以看一下这位大佬<a target="_blank" rel="noopener" href="https://www.cnblogs.com/shellr00t/p/7638034.html">sm0nk</a>写的博客</p>
+</li>
+</ul>
+<p>![image-20211113224849752]([ACTF2020 新生赛]Include/image-20211113224849752.png)</p>
+<ul>
+<li>由于经过base64加密，解密一下得到flag</li>
+</ul>
+<p>![image-20211113225129535]([ACTF2020 新生赛]Include/image-20211113225129535.png)</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-11-13T22:35:37+08:00"
-              content="2021-11-13">
-          11-13
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/11/13/%5BACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B%5DInclude/" itemprop="url">
-            <span itemprop="name">ACTF2020新生赛Include</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/web%E7%BB%83%E4%B9%A0%E9%A2%98/" rel="tag"># web练习题</a>
+              <a href="/tags/BUUCTF/" rel="tag"># BUUCTF</a>
+              <a href="/tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" rel="tag"># 文件包含</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/11/04/%E5%BC%BA%E7%BD%91%E6%9D%AF2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8/" rel="prev" title="强网杯2019_随便注">
+                  <i class="fa fa-chevron-left"></i> 强网杯2019_随便注
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-11-04T16:27:37+08:00"
-              content="2021-11-04">
-          11-04
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/11/04/%E5%BC%BA%E7%BD%91%E6%9D%AF2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8/" itemprop="url">
-            <span itemprop="name">强网杯2019_随便注</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-11-04T15:54:37+08:00"
-              content="2021-11-04">
-          11-04
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/11/04/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-EasySQL/" itemprop="url">
-            <span itemprop="name">极客大挑战2019_EasySQL</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-11-02T19:42:47+08:00"
-              content="2021-11-02">
-          11-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/11/02/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019Havefun/" itemprop="url">
-            <span itemprop="name">极客大挑战2019Havefun</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-11-02T16:52:42+08:00"
-              content="2021-11-02">
-          11-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/11/02/test/" itemprop="url">
-            <span itemprop="name">HCTF 2018 WarmUp的write_up</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
 
 </div>
   </main>

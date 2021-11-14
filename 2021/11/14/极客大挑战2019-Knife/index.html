@@ -22,31 +22,35 @@
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wind-crow.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="​        这个题主要考查的是通过information_schemas数据库的sql注入。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。">
+<meta name="description" content="​        这个题主要考查的是一句话木马和连接工具的使用。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="极客大挑战2019_LoveSQL">
-<meta property="og:url" content="https://wind-crow.github.io/2021/11/14/[%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019]LoveSQL/index.html">
+<meta property="og:title" content="极客大挑战2019_Knife">
+<meta property="og:url" content="https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/index.html">
 <meta property="og:site_name" content="MyBlog">
-<meta property="og:description" content="​        这个题主要考查的是通过information_schemas数据库的sql注入。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。">
+<meta property="og:description" content="​        这个题主要考查的是一句话木马和连接工具的使用。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-11-14T06:31:37.000Z">
-<meta property="article:modified_time" content="2021-11-14T07:43:51.176Z">
+<meta property="og:image" content="https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/image-20211114155359077.png">
+<meta property="og:image" content="https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/image-20211114155536979.png">
+<meta property="og:image" content="https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/image-20211114155500668.png">
+<meta property="og:image" content="https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/image-20211114155511477.png">
+<meta property="article:published_time" content="2021-11-14T14:50:15.000Z">
+<meta property="article:modified_time" content="2021-11-14T14:50:51.938Z">
 <meta property="article:author" content="wind-crow">
 <meta property="article:tag" content="web练习题">
 <meta property="article:tag" content="BUUCTF">
-<meta property="article:tag" content="sql注入">
-<meta property="article:tag" content="information_schema库注入">
+<meta property="article:tag" content="一句话木马">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/image-20211114155359077.png">
 
 
-<link rel="canonical" href="https://wind-crow.github.io/2021/11/14/[%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019]LoveSQL/">
+<link rel="canonical" href="https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wind-crow.github.io/2021/11/14/[%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019]LoveSQL/","path":"2021/11/14/[极客大挑战 2019]LoveSQL/","title":"极客大挑战2019_LoveSQL"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/","path":"2021/11/14/极客大挑战2019-Knife/","title":"极客大挑战2019_Knife"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>极客大挑战2019_LoveSQL | MyBlog</title>
+<title>极客大挑战2019_Knife | MyBlog</title>
   
 
 
@@ -220,7 +224,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wind-crow.github.io/2021/11/14/[%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019]LoveSQL/">
+    <link itemprop="mainEntityOfPage" href="https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -233,7 +237,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          极客大挑战2019_LoveSQL
+          极客大挑战2019_Knife
         </h1>
 
         <div class="post-meta-container">
@@ -245,7 +249,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-11-14 14:31:37 / 修改时间：15:43:51" itemprop="dateCreated datePublished" datetime="2021-11-14T14:31:37+08:00">2021-11-14</time>
+      <time title="创建时间：2021-11-14 22:50:15 / 修改时间：22:50:51" itemprop="dateCreated datePublished" datetime="2021-11-14T22:50:15+08:00">2021-11-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -271,7 +275,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.6k</span>
+      <span>109</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -289,53 +293,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>​        这个题主要考查的是通过information_schemas数据库的sql注入。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
+        <p>​        这个题主要考查的是一句话木马和连接工具的使用。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
 <span id="more"></span>
 
 <ul>
-<li>首先使用万能密码看看会不会返回什么有用信息</li>
+<li>根据页面一句话木马都给出来了，还提示用菜刀</li>
 </ul>
-<p>![image-20211114143435804]([极客大挑战 2019]LoveSQL/image-20211114143435804.png)</p>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/image-20211114155359077.png" alt="image-20211114155359077"></p>
 <ul>
-<li>返回了一个用户名和密码，然后我们可以根据正确的账号密码，由order by确定返回的信息的列数</li>
+<li>用蚁剑或者菜刀连接，如下图</li>
 </ul>
-<p>![image-20211114143522866]([极客大挑战 2019]LoveSQL/image-20211114143522866.png)</p>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/image-20211114155536979.png" alt="image-20211114155536979"></p>
 <ul>
-<li>由于到order by 4失败，而order by 3成功，所以确定列数是3</li>
+<li>在根目录下找到了flag文件，打开得到flag</li>
 </ul>
-<p>![image-20211114144046034]([极客大挑战 2019]LoveSQL/image-20211114144046034.png)</p>
-<p>![image-20211114144114047]([极客大挑战 2019]LoveSQL/image-20211114144114047.png)</p>
-<ul>
-<li>构建payload：-1’ union select 1,database(),version()# 获得数据库的名字geek</li>
-</ul>
-<p>![image-20211114144519129]([极客大挑战 2019]LoveSQL/image-20211114144519129.png)</p>
-<ul>
-<li><p>访问information_schema数据库查看geek数据库有哪些表，payload为：</p>
-<p>-1’ union select 1,table_schema,group_concat(table_name) from information_schema.tables where table_schema=’geek’ #</p>
-<p>报出两个表，然后再查看表结构</p>
-</li>
-</ul>
-<p>![image-20211114150213614]([极客大挑战 2019]LoveSQL/image-20211114150213614.png)</p>
-<ul>
-<li><p>分别查看geekuser，l0ve1ysq1表结构，payload为：</p>
-<p>-1’ union select 1,table_name,group_concat(column_name) from information_schema.columns where table_name =  ‘geekuser’#</p>
-<p>geekuser表有id，username，paasword三个字段名</p>
-<p>l0ve1ysq1表有id，username，password三个字段名</p>
-</li>
-</ul>
-<p>![image-20211114150943034]([极客大挑战 2019]LoveSQL/image-20211114150943034.png)</p>
-<p>![image-20211114151311410]([极客大挑战 2019]LoveSQL/image-20211114151311410.png)</p>
-<ul>
-<li><p>接下来就是查询表中的数据了，由于每次只能显示一行结果，所以要用limit 来逐个查询。payload为 -1’  union select * from geekuser limit 0,1#</p>
-<p>根据下图可得geekuser表就一行信息</p>
-</li>
-</ul>
-<p>![image-20211114152541788]([极客大挑战 2019]LoveSQL/image-20211114152541788.png)</p>
-<p>![image-20211114152403799]([极客大挑战 2019]LoveSQL/image-20211114152403799.png)</p>
-<ul>
-<li>接下来暴力破解l0ve1ysq1表 payload为-1’  union select * from l0ve1ysq1 limit 0,1#。在第15行找到flag</li>
-</ul>
-<p>![image-20211114154321739]([极客大挑战 2019]LoveSQL/image-20211114154321739.png)</p>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/image-20211114155500668.png" alt="image-20211114155500668"></p>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/image-20211114155511477.png" alt="image-20211114155511477"></p>
 
     </div>
 
@@ -347,21 +320,20 @@
           <div class="post-tags">
               <a href="/tags/web%E7%BB%83%E4%B9%A0%E9%A2%98/" rel="tag"># web练习题</a>
               <a href="/tags/BUUCTF/" rel="tag"># BUUCTF</a>
-              <a href="/tags/sql%E6%B3%A8%E5%85%A5/" rel="tag"># sql注入</a>
-              <a href="/tags/information-schema%E5%BA%93%E6%B3%A8%E5%85%A5/" rel="tag"># information_schema库注入</a>
+              <a href="/tags/%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC/" rel="tag"># 一句话木马</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/11/14/%5BACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B%5DExec/" rel="prev" title="ACTF2020新生赛_Exec">
-                  <i class="fa fa-chevron-left"></i> ACTF2020新生赛_Exec
+                <a href="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-LoveSQL/" rel="prev" title="极客大挑战2019_LoveSQL">
+                  <i class="fa fa-chevron-left"></i> 极客大挑战2019_LoveSQL
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/11/14/%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019%5DKnife/" rel="next" title="极客大挑战2019_Knife">
-                  极客大挑战2019_Knife <i class="fa fa-chevron-right"></i>
+                <a href="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/" rel="next" title="极客大挑战2019_Http">
+                  极客大挑战2019_Http <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -394,13 +366,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">8k</span>
+    <span title="站点总字数">6k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">8 分钟</span>
+    <span title="站点阅读时长">5 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

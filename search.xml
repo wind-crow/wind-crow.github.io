@@ -1,44 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>ACTF2020新生赛Include</title>
-    <url>/2021/11/13/%5BACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B%5DInclude/</url>
-    <content><![CDATA[<p>​        这个题主要考查的是php封装协议。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
-<span id="more"></span>
-
-<ul>
-<li><p>首先 F12 查看网页前端源码，没有什么隐藏信息</p>
-</li>
-<li><p>然后用Burp Suite抓包，也没发现有什么页面跳转，如下图所示    </p>
-</li>
-</ul>
-<p>![image-20211113224115711]([ACTF2020 新生赛]Include/image-20211113224115711.png)      </p>
-<ul>
-<li><p>发现它文件包含的文件名是flag.php，还提问你能发现flag。猜测flag在这个flag.php文件中，但是前端没有显示，所以尝试把flag.php源码输出</p>
-</li>
-<li><p>构建payload：<a href="http://c6220dd2-f0d2-4a5b-919b-b9b6ce8c077f.node4.buuoj.cn:81/?file=php://filter/read=convert.base64-encode/resource=flag.php%EF%BC%8C">http://c6220dd2-f0d2-4a5b-919b-b9b6ce8c077f.node4.buuoj.cn:81/?file=php://filter/read=convert.base64-encode/resource=flag.php，</a></p>
-</li>
-<li><p>如果不理解这个payload可以看一下这位大佬<a href="https://www.cnblogs.com/shellr00t/p/7638034.html">sm0nk</a>写的博客</p>
-</li>
-</ul>
-<p>![image-20211113224849752]([ACTF2020 新生赛]Include/image-20211113224849752.png)</p>
-<ul>
-<li>由于经过base64加密，解密一下得到flag</li>
-</ul>
-<p>![image-20211113225129535]([ACTF2020 新生赛]Include/image-20211113225129535.png)</p>
-]]></content>
-      <categories>
-        <category>ctf习题</category>
-      </categories>
-      <tags>
-        <tag>web练习题</tag>
-        <tag>BUUCTF</tag>
-        <tag>文件包含</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ACTF2020新生赛_Exec</title>
-    <url>/2021/11/14/%5BACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B%5DExec/</url>
+    <url>/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Exec/</url>
     <content><![CDATA[<p>​        这个题主要考查的是常见管道符以及Linux命令的使用。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
 <span id="more"></span>
 
@@ -56,15 +20,15 @@
 <ul>
 <li>输入127.0.0.1|ls，根据返回结果查看管道符是否被过滤，结果如下图，没有被过滤</li>
 </ul>
-<p>![image-20211114141717349]([ACTF2020 新生赛]Exec/image-20211114141717349.png)</p>
+<p><img src="/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Exec/image-20211114141717349.png" alt="image-20211114141717349"></p>
 <ul>
 <li>查看根目录，发现flag文件</li>
 </ul>
-<p>![image-20211114142129088]([ACTF2020 新生赛]Exec/image-20211114142129088.png)</p>
+<p><img src="/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Exec/image-20211114142129088.png" alt="image-20211114142129088"></p>
 <ul>
 <li>用cat查看flag文件</li>
 </ul>
-<p>![image-20211114142237974]([ACTF2020 新生赛]Exec/image-20211114142237974.png)</p>
+<p><img src="/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Exec/image-20211114142237974.png" alt="image-20211114142237974"></p>
 ]]></content>
       <categories>
         <category>ctf习题</category>
@@ -74,190 +38,6 @@
         <tag>BUUCTF</tag>
         <tag>ping</tag>
         <tag>命令执行漏洞</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>极客大挑战2019_Http</title>
-    <url>/2021/11/14/%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019%5DHttp/</url>
-    <content><![CDATA[<p>​        这个题主要考查的是http的知识。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
-<span id="more"></span>
-
-<ul>
-<li>检查页面发现来超链接</li>
-</ul>
-<p>![image-20211114160430072]([极客大挑战 2019]Http/image-20211114160430072.png)</p>
-<p>接下来我们需要了解http请求头的一些知识</p>
-<ol>
-<li>Host：请求资源的目的地址和端口号</li>
-<li>User-Agent：包含的信息有客户端的操作系统，浏览器和其他属性</li>
-<li>Referer：包含一个URL，代表当前访问URL的上一个URL，也就是用户从什么地方来到本页面的</li>
-<li>x-forwarded-for：它代表请求端的IP</li>
-</ol>
-<ul>
-<li>点击超链接后返回如下图所示，意思是不是从<a href="https://sycsecret.buuoj.cn跳转过来的./">https://Sycsecret.buuoj.cn跳转过来的。</a></li>
-</ul>
-<p>![image-20211114160543483]([极客大挑战 2019]Http/image-20211114160543483.png)</p>
-<ul>
-<li>​    修改referer的内容为<a href="https://sycsecret.buuoj.cn,返回页面如下图,意思要修改user-agent的内容为syclover/">https://Sycsecret.buuoj.cn，返回页面如下图，意思要修改User-Agent的内容为Syclover</a></li>
-</ul>
-<p>![image-20211114161011657]([极客大挑战 2019]Http/image-20211114161011657.png)</p>
-<ul>
-<li>修改User-Agent后，又返回说不是从本地访问的，所以修改x-forwarded-for 127.0.0.1</li>
-</ul>
-<p>![image-20211114161237623]([极客大挑战 2019]Http/image-20211114161237623.png)</p>
-<ul>
-<li>返回flag</li>
-</ul>
-<p>![image-20211114161848198]([极客大挑战 2019]Http/image-20211114161848198.png)</p>
-]]></content>
-      <categories>
-        <category>ctf习题</category>
-      </categories>
-      <tags>
-        <tag>web练习题</tag>
-        <tag>BUUCTF</tag>
-        <tag>http</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>极客大挑战2019_Knife</title>
-    <url>/2021/11/14/%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019%5DKnife/</url>
-    <content><![CDATA[<p>​        这个题主要考查的是一句话木马和连接工具的使用。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
-<span id="more"></span>
-
-<ul>
-<li>根据页面一句话木马都给出来了，还提示用菜刀</li>
-</ul>
-<p>![image-20211114155359077]([极客大挑战 2019]Knife/image-20211114155359077.png)</p>
-<ul>
-<li>用蚁剑或者菜刀连接，如下图</li>
-</ul>
-<p>![image-20211114155536979]([极客大挑战 2019]Knife/image-20211114155536979.png)</p>
-<ul>
-<li>在根目录下找到了flag文件，打开得到flag</li>
-</ul>
-<p>![image-20211114155500668]([极客大挑战 2019]Knife/image-20211114155500668.png)</p>
-<p>![image-20211114155511477]([极客大挑战 2019]Knife/image-20211114155511477.png)</p>
-]]></content>
-      <categories>
-        <category>ctf习题</category>
-      </categories>
-      <tags>
-        <tag>web练习题</tag>
-        <tag>BUUCTF</tag>
-        <tag>一句话木马</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>极客大挑战2019_LoveSQL</title>
-    <url>/2021/11/14/%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019%5DLoveSQL/</url>
-    <content><![CDATA[<p>​        这个题主要考查的是通过information_schemas数据库的sql注入。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
-<span id="more"></span>
-
-<ul>
-<li>首先使用万能密码看看会不会返回什么有用信息</li>
-</ul>
-<p>![image-20211114143435804]([极客大挑战 2019]LoveSQL/image-20211114143435804.png)</p>
-<ul>
-<li>返回了一个用户名和密码，然后我们可以根据正确的账号密码，由order by确定返回的信息的列数</li>
-</ul>
-<p>![image-20211114143522866]([极客大挑战 2019]LoveSQL/image-20211114143522866.png)</p>
-<ul>
-<li>由于到order by 4失败，而order by 3成功，所以确定列数是3</li>
-</ul>
-<p>![image-20211114144046034]([极客大挑战 2019]LoveSQL/image-20211114144046034.png)</p>
-<p>![image-20211114144114047]([极客大挑战 2019]LoveSQL/image-20211114144114047.png)</p>
-<ul>
-<li>构建payload：-1’ union select 1,database(),version()# 获得数据库的名字geek</li>
-</ul>
-<p>![image-20211114144519129]([极客大挑战 2019]LoveSQL/image-20211114144519129.png)</p>
-<ul>
-<li><p>访问information_schema数据库查看geek数据库有哪些表，payload为：</p>
-<p>-1’ union select 1,table_schema,group_concat(table_name) from information_schema.tables where table_schema=’geek’ #</p>
-<p>报出两个表，然后再查看表结构</p>
-</li>
-</ul>
-<p>![image-20211114150213614]([极客大挑战 2019]LoveSQL/image-20211114150213614.png)</p>
-<ul>
-<li><p>分别查看geekuser，l0ve1ysq1表结构，payload为：</p>
-<p>-1’ union select 1,table_name,group_concat(column_name) from information_schema.columns where table_name =  ‘geekuser’#</p>
-<p>geekuser表有id，username，paasword三个字段名</p>
-<p>l0ve1ysq1表有id，username，password三个字段名</p>
-</li>
-</ul>
-<p>![image-20211114150943034]([极客大挑战 2019]LoveSQL/image-20211114150943034.png)</p>
-<p>![image-20211114151311410]([极客大挑战 2019]LoveSQL/image-20211114151311410.png)</p>
-<ul>
-<li><p>接下来就是查询表中的数据了，由于每次只能显示一行结果，所以要用limit 来逐个查询。payload为 -1’  union select * from geekuser limit 0,1#</p>
-<p>根据下图可得geekuser表就一行信息</p>
-</li>
-</ul>
-<p>![image-20211114152541788]([极客大挑战 2019]LoveSQL/image-20211114152541788.png)</p>
-<p>![image-20211114152403799]([极客大挑战 2019]LoveSQL/image-20211114152403799.png)</p>
-<ul>
-<li>接下来暴力破解l0ve1ysq1表 payload为-1’  union select * from l0ve1ysq1 limit 0,1#。在第15行找到flag</li>
-</ul>
-<p>![image-20211114154321739]([极客大挑战 2019]LoveSQL/image-20211114154321739.png)</p>
-]]></content>
-      <categories>
-        <category>ctf习题</category>
-      </categories>
-      <tags>
-        <tag>web练习题</tag>
-        <tag>BUUCTF</tag>
-        <tag>sql注入</tag>
-        <tag>information_schema库注入</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>极客大挑战2019_Secret</title>
-    <url>/2021/11/14/%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019%5DSecret/</url>
-    <content><![CDATA[<p>​        这个题主要考查的是php封装协议。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
-<span id="more"></span>
-
-<ul>
-<li>F12查看前端源码，发现一个隐藏的超链接与背景融为一体都是黑色，所以改变一下</li>
-</ul>
-<p>![image-20211114131311286]([极客大挑战 2019]Secret/image-20211114131311286.png)</p>
-<ul>
-<li>与背景融为一体都是黑色，所以改变一下颜色，把black改为red结果如下图</li>
-</ul>
-<p>![image-20211114131539193]([极客大挑战 2019]Secret/image-20211114131539193.png)</p>
-<ul>
-<li>点击链接后页面时是下列第一张图，然后点击SECRET返回的页面是第二张图，前端没有发现什么隐藏信息，抓包试一下</li>
-</ul>
-<p>![image-20211114131648260]([极客大挑战 2019]Secret/image-20211114131648260.png)</p>
-<p>![image-20211114131752450]([极客大挑战 2019]Secret/image-20211114131752450.png)</p>
-<ul>
-<li>抓包结果如下图，发现网页跳转，查看响应包时，发现了隐藏信息secr3t.php</li>
-</ul>
-<p>![image-20211114132152965]([极客大挑战 2019]Secret/image-20211114132152965.png)</p>
-<ul>
-<li>访问secr3t.php，如下图，页面上有php代码，是简单的过滤了传进去的file</li>
-</ul>
-<p>![image-20211114132632501]([极客大挑战 2019]Secret/image-20211114132632501.png)</p>
-<ul>
-<li><p>访问flag.php文件后，如下图所示，flag没有像起初的那个超链接一样隐藏在页面中，所以猜测是隐藏在后端代码中，所以构建payload：</p>
-<p>?file=php://filter/read=convert.base64-encode/resource=flag.php</p>
-</li>
-</ul>
-<p>![image-20211114133022068]([极客大挑战 2019]Secret/image-20211114133022068.png)</p>
-<ul>
-<li>页面上显示了basse64加密后的源码</li>
-</ul>
-<p>![image-20211114134251536]([极客大挑战 2019]Secret/image-20211114134251536.png)</p>
-<ul>
-<li>解密后得到flag</li>
-</ul>
-<p>![image-20211114134443588]([极客大挑战 2019]Secret/image-20211114134443588.png)</p>
-]]></content>
-      <categories>
-        <category>ctf习题</category>
-      </categories>
-      <tags>
-        <tag>web练习题</tag>
-        <tag>BUUCTF</tag>
-        <tag>文件包含</tag>
       </tags>
   </entry>
   <entry>
@@ -301,6 +81,42 @@
         <tag>web练习题</tag>
         <tag>BUUCTF</tag>
         <tag>PHP代码审计</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ACTF2020新生赛_Include</title>
+    <url>/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Include/</url>
+    <content><![CDATA[<p>​        这个题主要考查的是php封装协议。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
+<span id="more"></span>
+
+<ul>
+<li><p>首先 F12 查看网页前端源码，没有什么隐藏信息</p>
+</li>
+<li><p>然后用Burp Suite抓包，也没发现有什么页面跳转，如下图所示    </p>
+</li>
+</ul>
+<p><img src="/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Include/image-20211113224115711.png" alt="image-20211113224115711">      </p>
+<ul>
+<li><p>发现它文件包含的文件名是flag.php，还提问你能发现flag。猜测flag在这个flag.php文件中，但是前端没有显示，所以尝试把flag.php源码输出</p>
+</li>
+<li><p>构建payload：<a href="http://c6220dd2-f0d2-4a5b-919b-b9b6ce8c077f.node4.buuoj.cn:81/?file=php://filter/read=convert.base64-encode/resource=flag.php%EF%BC%8C">http://c6220dd2-f0d2-4a5b-919b-b9b6ce8c077f.node4.buuoj.cn:81/?file=php://filter/read=convert.base64-encode/resource=flag.php，</a></p>
+</li>
+<li><p>如果不理解这个payload可以看一下这位大佬<a href="https://www.cnblogs.com/shellr00t/p/7638034.html">sm0nk</a>写的博客</p>
+</li>
+</ul>
+<p><img src="/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Include/image-20211113224849752.png" alt="image-20211113224849752"></p>
+<ul>
+<li>由于经过base64加密，解密一下得到flag</li>
+</ul>
+<p><img src="/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Include/image-20211113225129535.png" alt="image-20211113225129535"></p>
+]]></content>
+      <categories>
+        <category>ctf习题</category>
+      </categories>
+      <tags>
+        <tag>web练习题</tag>
+        <tag>BUUCTF</tag>
+        <tag>文件包含</tag>
       </tags>
   </entry>
   <entry>
@@ -422,6 +238,190 @@
         <tag>web练习题</tag>
         <tag>BUUCTF</tag>
         <tag>sql注入</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>极客大挑战2019_Http</title>
+    <url>/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/</url>
+    <content><![CDATA[<p>​        这个题主要考查的是http的知识。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
+<span id="more"></span>
+
+<ul>
+<li>检查页面发现来超链接</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/image-20211114160430072.png" alt="image-20211114160430072"></p>
+<p>接下来我们需要了解http请求头的一些知识</p>
+<ol>
+<li>Host：请求资源的目的地址和端口号</li>
+<li>User-Agent：包含的信息有客户端的操作系统，浏览器和其他属性</li>
+<li>Referer：包含一个URL，代表当前访问URL的上一个URL，也就是用户从什么地方来到本页面的</li>
+<li>x-forwarded-for：它代表请求端的IP</li>
+</ol>
+<ul>
+<li>点击超链接后返回如下图所示，意思是不是从<a href="https://sycsecret.buuoj.cn跳转过来的./">https://Sycsecret.buuoj.cn跳转过来的。</a></li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/image-20211114160543483.png" alt="image-20211114160543483"></p>
+<ul>
+<li>​    修改referer的内容为<a href="https://sycsecret.buuoj.cn,返回页面如下图,意思要修改user-agent的内容为syclover/">https://Sycsecret.buuoj.cn，返回页面如下图，意思要修改User-Agent的内容为Syclover</a></li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/image-20211114161011657.png" alt="image-20211114161011657"></p>
+<ul>
+<li>修改User-Agent后，又返回说不是从本地访问的，所以修改x-forwarded-for 127.0.0.1</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/image-20211114161237623.png" alt="image-20211114161237623"></p>
+<ul>
+<li>返回flag</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/image-20211114161848198.png" alt="image-20211114161848198"></p>
+]]></content>
+      <categories>
+        <category>ctf习题</category>
+      </categories>
+      <tags>
+        <tag>web练习题</tag>
+        <tag>BUUCTF</tag>
+        <tag>http</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>极客大挑战2019_Knife</title>
+    <url>/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/</url>
+    <content><![CDATA[<p>​        这个题主要考查的是一句话木马和连接工具的使用。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
+<span id="more"></span>
+
+<ul>
+<li>根据页面一句话木马都给出来了，还提示用菜刀</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/image-20211114155359077.png" alt="image-20211114155359077"></p>
+<ul>
+<li>用蚁剑或者菜刀连接，如下图</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/image-20211114155536979.png" alt="image-20211114155536979"></p>
+<ul>
+<li>在根目录下找到了flag文件，打开得到flag</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/image-20211114155500668.png" alt="image-20211114155500668"></p>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/image-20211114155511477.png" alt="image-20211114155511477"></p>
+]]></content>
+      <categories>
+        <category>ctf习题</category>
+      </categories>
+      <tags>
+        <tag>web练习题</tag>
+        <tag>BUUCTF</tag>
+        <tag>一句话木马</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>极客大挑战2019_LoveSQL</title>
+    <url>/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-LoveSQL/</url>
+    <content><![CDATA[<p>​        这个题主要考查的是通过information_schemas数据库的sql注入。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
+<span id="more"></span>
+
+<ul>
+<li>首先使用万能密码看看会不会返回什么有用信息</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-LoveSQL/image-20211114143435804.png" alt="image-20211114143435804"></p>
+<ul>
+<li>返回了一个用户名和密码，然后我们可以根据正确的账号密码，由order by确定返回的信息的列数</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-LoveSQL/image-20211114143522866.png" alt="image-20211114143522866"></p>
+<ul>
+<li>由于到order by 4失败，而order by 3成功，所以确定列数是3</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-LoveSQL/image-20211114144046034.png" alt="image-20211114144046034"></p>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-LoveSQL/image-20211114144114047.png" alt="image-20211114144114047"></p>
+<ul>
+<li>构建payload：-1’ union select 1,database(),version()# 获得数据库的名字geek</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-LoveSQL/image-20211114144519129.png" alt="image-20211114144519129"></p>
+<ul>
+<li><p>访问information_schema数据库查看geek数据库有哪些表，payload为：</p>
+<p>-1’ union select 1,table_schema,group_concat(table_name) from information_schema.tables where table_schema=’geek’ #</p>
+<p>报出两个表，然后再查看表结构</p>
+</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-LoveSQL/image-20211114150213614.png" alt="image-20211114150213614"></p>
+<ul>
+<li><p>分别查看geekuser，l0ve1ysq1表结构，payload为：</p>
+<p>-1’ union select 1,table_name,group_concat(column_name) from information_schema.columns where table_name =  ‘geekuser’#</p>
+<p>geekuser表有id，username，paasword三个字段名</p>
+<p>l0ve1ysq1表有id，username，password三个字段名</p>
+</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-LoveSQL/image-20211114150943034.png" alt="image-20211114150943034"></p>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-LoveSQL/image-20211114151311410.png" alt="image-20211114151311410"></p>
+<ul>
+<li><p>接下来就是查询表中的数据了，由于每次只能显示一行结果，所以要用limit 来逐个查询。payload为 -1’  union select * from geekuser limit 0,1#</p>
+<p>根据下图可得geekuser表就一行信息</p>
+</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-LoveSQL/image-20211114152541788.png" alt="image-20211114152541788"></p>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-LoveSQL/image-20211114152403799.png" alt="image-20211114152403799"></p>
+<ul>
+<li>接下来暴力破解l0ve1ysq1表 payload为-1’  union select * from l0ve1ysq1 limit 0,1#。在第15行找到flag</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-LoveSQL/image-20211114154321739.png" alt="image-20211114154321739"></p>
+]]></content>
+      <categories>
+        <category>ctf习题</category>
+      </categories>
+      <tags>
+        <tag>web练习题</tag>
+        <tag>BUUCTF</tag>
+        <tag>sql注入</tag>
+        <tag>information_schema库注入</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>极客大挑战2019_Secret</title>
+    <url>/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Secret/</url>
+    <content><![CDATA[<p>​       这个题主要考查的是php封装协议。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
+<span id="more"></span>
+
+<ul>
+<li>F12查看前端源码，发现一个隐藏的超链接与背景融为一体都是黑色，所以改变一下</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Secret/image-20211114131311286.png" alt="image-20211114131311286"></p>
+<ul>
+<li>与背景融为一体都是黑色，所以改变一下颜色，把black改为red结果如下图</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Secret/image-20211114131539193.png" alt="image-20211114131539193"></p>
+<ul>
+<li>点击链接后页面时是下列第一张图，然后点击SECRET返回的页面是第二张图，前端没有发现什么隐藏信息，抓包试一下</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Secret/image-20211114131648260.png" alt="image-20211114131648260"></p>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Secret/image-20211114131752450.png" alt="image-20211114131752450"></p>
+<ul>
+<li>抓包结果如下图，发现网页跳转，查看响应包时，发现了隐藏信息secr3t.php</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Secret/image-20211114132152965.png" alt="image-20211114132152965"></p>
+<ul>
+<li>访问secr3t.php，如下图，页面上有php代码，是简单的过滤了传进去的file</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Secret/image-20211114132632501.png" alt="image-20211114132632501"></p>
+<ul>
+<li><p>访问flag.php文件后，如下图所示，flag没有像起初的那个超链接一样隐藏在页面中，所以猜测是隐藏在后端代码中，所以构建payload：</p>
+<p>?file=php://filter/read=convert.base64-encode/resource=flag.php</p>
+</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Secret/image-20211114133022068.png" alt="image-20211114133022068"></p>
+<ul>
+<li>页面上显示了basse64加密后的源码</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Secret/image-20211114134251536.png" alt="image-20211114134251536"></p>
+<ul>
+<li>解密后得到flag</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Secret/image-20211114134443588.png" alt="image-20211114134443588"></p>
+]]></content>
+      <categories>
+        <category>ctf习题</category>
+      </categories>
+      <tags>
+        <tag>web练习题</tag>
+        <tag>BUUCTF</tag>
+        <tag>文件包含</tag>
       </tags>
   </entry>
   <entry>

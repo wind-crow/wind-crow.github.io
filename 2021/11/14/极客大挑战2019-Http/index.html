@@ -22,30 +22,36 @@
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wind-crow.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="​        这个题主要考查的是php封装协议。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。">
+<meta name="description" content="​        这个题主要考查的是http的知识。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ACTF2020新生赛Include">
-<meta property="og:url" content="https://wind-crow.github.io/2021/11/13/[ACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B]Include/index.html">
+<meta property="og:title" content="极客大挑战2019_Http">
+<meta property="og:url" content="https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/index.html">
 <meta property="og:site_name" content="MyBlog">
-<meta property="og:description" content="​        这个题主要考查的是php封装协议。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。">
+<meta property="og:description" content="​        这个题主要考查的是http的知识。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-11-13T14:35:37.000Z">
-<meta property="article:modified_time" content="2021-11-13T15:18:09.953Z">
+<meta property="og:image" content="https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/image-20211114160430072.png">
+<meta property="og:image" content="https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/image-20211114160543483.png">
+<meta property="og:image" content="https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/image-20211114161011657.png">
+<meta property="og:image" content="https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/image-20211114161237623.png">
+<meta property="og:image" content="https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/image-20211114161848198.png">
+<meta property="article:published_time" content="2021-11-14T14:51:45.000Z">
+<meta property="article:modified_time" content="2021-11-14T14:52:44.312Z">
 <meta property="article:author" content="wind-crow">
 <meta property="article:tag" content="web练习题">
 <meta property="article:tag" content="BUUCTF">
-<meta property="article:tag" content="文件包含">
+<meta property="article:tag" content="http">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/image-20211114160430072.png">
 
 
-<link rel="canonical" href="https://wind-crow.github.io/2021/11/13/[ACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B]Include/">
+<link rel="canonical" href="https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wind-crow.github.io/2021/11/13/[ACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B]Include/","path":"2021/11/13/[ACTF2020 新生赛]Include/","title":"ACTF2020新生赛Include"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/","path":"2021/11/14/极客大挑战2019-Http/","title":"极客大挑战2019_Http"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>ACTF2020新生赛Include | MyBlog</title>
+<title>极客大挑战2019_Http | MyBlog</title>
   
 
 
@@ -219,7 +225,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wind-crow.github.io/2021/11/13/[ACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B]Include/">
+    <link itemprop="mainEntityOfPage" href="https://wind-crow.github.io/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -232,7 +238,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ACTF2020新生赛Include
+          极客大挑战2019_Http
         </h1>
 
         <div class="post-meta-container">
@@ -244,7 +250,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-11-13 22:35:37 / 修改时间：23:18:09" itemprop="dateCreated datePublished" datetime="2021-11-13T22:35:37+08:00">2021-11-13</time>
+      <time title="创建时间：2021-11-14 22:51:45 / 修改时间：22:52:44" itemprop="dateCreated datePublished" datetime="2021-11-14T22:51:45+08:00">2021-11-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -270,7 +276,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>599</span>
+      <span>392</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -288,29 +294,36 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>​        这个题主要考查的是php封装协议。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
+        <p>​        这个题主要考查的是http的知识。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
 <span id="more"></span>
 
 <ul>
-<li><p>首先 F12 查看网页前端源码，没有什么隐藏信息</p>
-</li>
-<li><p>然后用Burp Suite抓包，也没发现有什么页面跳转，如下图所示    </p>
-</li>
+<li>检查页面发现来超链接</li>
 </ul>
-<p>![image-20211113224115711]([ACTF2020 新生赛]Include/image-20211113224115711.png)      </p>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/image-20211114160430072.png" alt="image-20211114160430072"></p>
+<p>接下来我们需要了解http请求头的一些知识</p>
+<ol>
+<li>Host：请求资源的目的地址和端口号</li>
+<li>User-Agent：包含的信息有客户端的操作系统，浏览器和其他属性</li>
+<li>Referer：包含一个URL，代表当前访问URL的上一个URL，也就是用户从什么地方来到本页面的</li>
+<li>x-forwarded-for：它代表请求端的IP</li>
+</ol>
 <ul>
-<li><p>发现它文件包含的文件名是flag.php，还提问你能发现flag。猜测flag在这个flag.php文件中，但是前端没有显示，所以尝试把flag.php源码输出</p>
-</li>
-<li><p>构建payload：<a target="_blank" rel="noopener" href="http://c6220dd2-f0d2-4a5b-919b-b9b6ce8c077f.node4.buuoj.cn:81/?file=php://filter/read=convert.base64-encode/resource=flag.php%EF%BC%8C">http://c6220dd2-f0d2-4a5b-919b-b9b6ce8c077f.node4.buuoj.cn:81/?file=php://filter/read=convert.base64-encode/resource=flag.php，</a></p>
-</li>
-<li><p>如果不理解这个payload可以看一下这位大佬<a target="_blank" rel="noopener" href="https://www.cnblogs.com/shellr00t/p/7638034.html">sm0nk</a>写的博客</p>
-</li>
+<li>点击超链接后返回如下图所示，意思是不是从<a target="_blank" rel="noopener" href="https://sycsecret.buuoj.cn跳转过来的./">https://Sycsecret.buuoj.cn跳转过来的。</a></li>
 </ul>
-<p>![image-20211113224849752]([ACTF2020 新生赛]Include/image-20211113224849752.png)</p>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/image-20211114160543483.png" alt="image-20211114160543483"></p>
 <ul>
-<li>由于经过base64加密，解密一下得到flag</li>
+<li>​    修改referer的内容为<a target="_blank" rel="noopener" href="https://sycsecret.buuoj.cn,返回页面如下图,意思要修改user-agent的内容为syclover/">https://Sycsecret.buuoj.cn，返回页面如下图，意思要修改User-Agent的内容为Syclover</a></li>
 </ul>
-<p>![image-20211113225129535]([ACTF2020 新生赛]Include/image-20211113225129535.png)</p>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/image-20211114161011657.png" alt="image-20211114161011657"></p>
+<ul>
+<li>修改User-Agent后，又返回说不是从本地访问的，所以修改x-forwarded-for 127.0.0.1</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/image-20211114161237623.png" alt="image-20211114161237623"></p>
+<ul>
+<li>返回flag</li>
+</ul>
+<p><img src="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/image-20211114161848198.png" alt="image-20211114161848198"></p>
 
     </div>
 
@@ -322,20 +335,20 @@
           <div class="post-tags">
               <a href="/tags/web%E7%BB%83%E4%B9%A0%E9%A2%98/" rel="tag"># web练习题</a>
               <a href="/tags/BUUCTF/" rel="tag"># BUUCTF</a>
-              <a href="/tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" rel="tag"># 文件包含</a>
+              <a href="/tags/http/" rel="tag"># http</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/11/04/%E5%BC%BA%E7%BD%91%E6%9D%AF2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8/" rel="prev" title="强网杯2019_随便注">
-                  <i class="fa fa-chevron-left"></i> 强网杯2019_随便注
+                <a href="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Knife/" rel="prev" title="极客大挑战2019_Knife">
+                  <i class="fa fa-chevron-left"></i> 极客大挑战2019_Knife
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/11/14/%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019%5DSecret/" rel="next" title="极客大挑战2019_Secret">
-                  极客大挑战2019_Secret <i class="fa fa-chevron-right"></i>
+                <a href="/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Include/" rel="next" title="ACTF2020新生赛_Include">
+                  ACTF2020新生赛_Include <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -368,13 +381,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">8k</span>
+    <span title="站点总字数">6k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">8 分钟</span>
+    <span title="站点阅读时长">5 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

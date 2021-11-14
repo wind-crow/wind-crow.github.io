@@ -22,30 +22,35 @@
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wind-crow.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="​        这个题主要考查的是php封装协议。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。">
+<meta name="description" content="​        这个题主要考查的是常见管道符以及Linux命令的使用。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="极客大挑战2019_Secret">
-<meta property="og:url" content="https://wind-crow.github.io/2021/11/14/[%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019]Secret/index.html">
+<meta property="og:title" content="ACTF2020新生赛_Exec">
+<meta property="og:url" content="https://wind-crow.github.io/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Exec/index.html">
 <meta property="og:site_name" content="MyBlog">
-<meta property="og:description" content="​        这个题主要考查的是php封装协议。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。">
+<meta property="og:description" content="​        这个题主要考查的是常见管道符以及Linux命令的使用。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-11-14T05:06:37.000Z">
-<meta property="article:modified_time" content="2021-11-14T08:57:31.071Z">
+<meta property="og:image" content="https://wind-crow.github.io/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Exec/image-20211114141717349.png">
+<meta property="og:image" content="https://wind-crow.github.io/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Exec/image-20211114142129088.png">
+<meta property="og:image" content="https://wind-crow.github.io/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Exec/image-20211114142237974.png">
+<meta property="article:published_time" content="2021-11-14T14:40:26.000Z">
+<meta property="article:modified_time" content="2021-11-14T14:43:34.588Z">
 <meta property="article:author" content="wind-crow">
 <meta property="article:tag" content="web练习题">
 <meta property="article:tag" content="BUUCTF">
-<meta property="article:tag" content="文件包含">
+<meta property="article:tag" content="ping">
+<meta property="article:tag" content="命令执行漏洞">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wind-crow.github.io/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Exec/image-20211114141717349.png">
 
 
-<link rel="canonical" href="https://wind-crow.github.io/2021/11/14/[%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019]Secret/">
+<link rel="canonical" href="https://wind-crow.github.io/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Exec/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wind-crow.github.io/2021/11/14/[%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019]Secret/","path":"2021/11/14/[极客大挑战 2019]Secret/","title":"极客大挑战2019_Secret"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wind-crow.github.io/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Exec/","path":"2021/11/14/ACTF2020新生赛-Exec/","title":"ACTF2020新生赛_Exec"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>极客大挑战2019_Secret | MyBlog</title>
+<title>ACTF2020新生赛_Exec | MyBlog</title>
   
 
 
@@ -219,7 +224,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wind-crow.github.io/2021/11/14/[%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019]Secret/">
+    <link itemprop="mainEntityOfPage" href="https://wind-crow.github.io/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Exec/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -232,7 +237,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          极客大挑战2019_Secret
+          ACTF2020新生赛_Exec
         </h1>
 
         <div class="post-meta-container">
@@ -244,7 +249,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-11-14 13:06:37 / 修改时间：16:57:31" itemprop="dateCreated datePublished" datetime="2021-11-14T13:06:37+08:00">2021-11-14</time>
+      <time title="创建时间：2021-11-14 22:40:26 / 修改时间：22:43:34" itemprop="dateCreated datePublished" datetime="2021-11-14T22:40:26+08:00">2021-11-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -270,7 +275,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
+      <span>261</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -288,44 +293,32 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>​        这个题主要考查的是php封装协议。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
+        <p>​        这个题主要考查的是常见管道符以及Linux命令的使用。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
 <span id="more"></span>
 
+<p><strong>常见管道符</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. | 直接执行 | 后面的语句</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2. || 如果前面的命令是错的，就执行 || 后面的语句;否则执行前面的</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. &amp;  无论真假 &amp; 前面和后面的命令都需要执行</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4. ; (linux下的，与 &amp;作用一样)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5. cat 文件名(要绝对路径或者相对路径)：获取文件内容</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>F12查看前端源码，发现一个隐藏的超链接与背景融为一体都是黑色，所以改变一下</li>
+<li>输入127.0.0.1|ls，根据返回结果查看管道符是否被过滤，结果如下图，没有被过滤</li>
 </ul>
-<p>![image-20211114131311286]([极客大挑战 2019]Secret/image-20211114131311286.png)</p>
+<p><img src="/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Exec/image-20211114141717349.png" alt="image-20211114141717349"></p>
 <ul>
-<li>与背景融为一体都是黑色，所以改变一下颜色，把black改为red结果如下图</li>
+<li>查看根目录，发现flag文件</li>
 </ul>
-<p>![image-20211114131539193]([极客大挑战 2019]Secret/image-20211114131539193.png)</p>
+<p><img src="/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Exec/image-20211114142129088.png" alt="image-20211114142129088"></p>
 <ul>
-<li>点击链接后页面时是下列第一张图，然后点击SECRET返回的页面是第二张图，前端没有发现什么隐藏信息，抓包试一下</li>
+<li>用cat查看flag文件</li>
 </ul>
-<p>![image-20211114131648260]([极客大挑战 2019]Secret/image-20211114131648260.png)</p>
-<p>![image-20211114131752450]([极客大挑战 2019]Secret/image-20211114131752450.png)</p>
-<ul>
-<li>抓包结果如下图，发现网页跳转，查看响应包时，发现了隐藏信息secr3t.php</li>
-</ul>
-<p>![image-20211114132152965]([极客大挑战 2019]Secret/image-20211114132152965.png)</p>
-<ul>
-<li>访问secr3t.php，如下图，页面上有php代码，是简单的过滤了传进去的file</li>
-</ul>
-<p>![image-20211114132632501]([极客大挑战 2019]Secret/image-20211114132632501.png)</p>
-<ul>
-<li><p>访问flag.php文件后，如下图所示，flag没有像起初的那个超链接一样隐藏在页面中，所以猜测是隐藏在后端代码中，所以构建payload：</p>
-<p>?file=php://filter/read=convert.base64-encode/resource=flag.php</p>
-</li>
-</ul>
-<p>![image-20211114133022068]([极客大挑战 2019]Secret/image-20211114133022068.png)</p>
-<ul>
-<li>页面上显示了basse64加密后的源码</li>
-</ul>
-<p>![image-20211114134251536]([极客大挑战 2019]Secret/image-20211114134251536.png)</p>
-<ul>
-<li>解密后得到flag</li>
-</ul>
-<p>![image-20211114134443588]([极客大挑战 2019]Secret/image-20211114134443588.png)</p>
+<p><img src="/2021/11/14/ACTF2020%E6%96%B0%E7%94%9F%E8%B5%9B-Exec/image-20211114142237974.png" alt="image-20211114142237974"></p>
 
     </div>
 
@@ -337,20 +330,21 @@
           <div class="post-tags">
               <a href="/tags/web%E7%BB%83%E4%B9%A0%E9%A2%98/" rel="tag"># web练习题</a>
               <a href="/tags/BUUCTF/" rel="tag"># BUUCTF</a>
-              <a href="/tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" rel="tag"># 文件包含</a>
+              <a href="/tags/ping/" rel="tag"># ping</a>
+              <a href="/tags/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/" rel="tag"># 命令执行漏洞</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/11/13/%5BACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B%5DInclude/" rel="prev" title="ACTF2020新生赛Include">
-                  <i class="fa fa-chevron-left"></i> ACTF2020新生赛Include
+                <a href="/2021/11/04/%E5%BC%BA%E7%BD%91%E6%9D%AF2019-%E9%9A%8F%E4%BE%BF%E6%B3%A8/" rel="prev" title="强网杯2019_随便注">
+                  <i class="fa fa-chevron-left"></i> 强网杯2019_随便注
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/11/14/%5BACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B%5DExec/" rel="next" title="ACTF2020新生赛_Exec">
-                  ACTF2020新生赛_Exec <i class="fa fa-chevron-right"></i>
+                <a href="/2021/11/14/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Secret/" rel="next" title="极客大挑战2019_Secret">
+                  极客大挑战2019_Secret <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -383,13 +377,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">8k</span>
+    <span title="站点总字数">6k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">8 分钟</span>
+    <span title="站点阅读时长">5 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">

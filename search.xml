@@ -1,8 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ACTF2020新生赛Include</title>
+    <url>/2021/11/13/%5BACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B%5DInclude/</url>
+    <content><![CDATA[<p>​        这个题主要考查的是php封装协议。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
+<span id="more"></span>
+
+<ul>
+<li><p>首先 F12 查看网页前端源码，没有什么隐藏信息</p>
+</li>
+<li><p>然后用Burp Suite抓包，也没发现有什么页面跳转，如下图所示    </p>
+</li>
+</ul>
+<p>![image-20211113224115711]([ACTF2020 新生赛]Include/image-20211113224115711.png)      </p>
+<ul>
+<li><p>发现它文件包含的文件名是flag.php，还提问你能发现flag。猜测flag在这个flag.php文件中，但是前端没有显示，所以尝试把flag.php源码输出</p>
+</li>
+<li><p>构建payload：<a href="http://c6220dd2-f0d2-4a5b-919b-b9b6ce8c077f.node4.buuoj.cn:81/?file=php://filter/read=convert.base64-encode/resource=flag.php%EF%BC%8C">http://c6220dd2-f0d2-4a5b-919b-b9b6ce8c077f.node4.buuoj.cn:81/?file=php://filter/read=convert.base64-encode/resource=flag.php，</a></p>
+</li>
+<li><p>如果不理解这个payload可以看一下这位大佬<a href="https://www.cnblogs.com/shellr00t/p/7638034.html">sm0nk</a>写的博客</p>
+</li>
+</ul>
+<p>![image-20211113224849752]([ACTF2020 新生赛]Include/image-20211113224849752.png)</p>
+<ul>
+<li>由于经过base64加密，解密一下得到flag</li>
+</ul>
+<p>![image-20211113225129535]([ACTF2020 新生赛]Include/image-20211113225129535.png)</p>
+]]></content>
+      <categories>
+        <category>ctf习题</category>
+      </categories>
+      <tags>
+        <tag>web练习题</tag>
+        <tag>BUUCTF</tag>
+        <tag>文件包含</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ACTF2020新生赛_Exec</title>
-    <url>/2012/11/14/%5BACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B%5DExec/</url>
+    <url>/2021/11/14/%5BACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B%5DExec/</url>
     <content><![CDATA[<p>​        这个题主要考查的是常见管道符以及Linux命令的使用。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
 <span id="more"></span>
 
@@ -38,42 +74,6 @@
         <tag>BUUCTF</tag>
         <tag>ping</tag>
         <tag>命令执行漏洞</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ACTF2020新生赛Include</title>
-    <url>/2021/11/13/%5BACTF2020%20%E6%96%B0%E7%94%9F%E8%B5%9B%5DInclude/</url>
-    <content><![CDATA[<p>​        这个题主要考查的是php封装协议。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
-<span id="more"></span>
-
-<ul>
-<li><p>首先 F12 查看网页前端源码，没有什么隐藏信息</p>
-</li>
-<li><p>然后用Burp Suite抓包，也没发现有什么页面跳转，如下图所示    </p>
-</li>
-</ul>
-<p>![image-20211113224115711]([ACTF2020 新生赛]Include/image-20211113224115711.png)      </p>
-<ul>
-<li><p>发现它文件包含的文件名是flag.php，还提问你能发现flag。猜测flag在这个flag.php文件中，但是前端没有显示，所以尝试把flag.php源码输出</p>
-</li>
-<li><p>构建payload：<a href="http://c6220dd2-f0d2-4a5b-919b-b9b6ce8c077f.node4.buuoj.cn:81/?file=php://filter/read=convert.base64-encode/resource=flag.php%EF%BC%8C">http://c6220dd2-f0d2-4a5b-919b-b9b6ce8c077f.node4.buuoj.cn:81/?file=php://filter/read=convert.base64-encode/resource=flag.php，</a></p>
-</li>
-<li><p>如果不理解这个payload可以看一下这位大佬<a href="https://www.cnblogs.com/shellr00t/p/7638034.html">sm0nk</a>写的博客</p>
-</li>
-</ul>
-<p>![image-20211113224849752]([ACTF2020 新生赛]Include/image-20211113224849752.png)</p>
-<ul>
-<li>由于经过base64加密，解密一下得到flag</li>
-</ul>
-<p>![image-20211113225129535]([ACTF2020 新生赛]Include/image-20211113225129535.png)</p>
-]]></content>
-      <categories>
-        <category>ctf习题</category>
-      </categories>
-      <tags>
-        <tag>web练习题</tag>
-        <tag>BUUCTF</tag>
-        <tag>文件包含</tag>
       </tags>
   </entry>
   <entry>
@@ -211,7 +211,7 @@
   </entry>
   <entry>
     <title>极客大挑战2019_Secret</title>
-    <url>/2012/11/14/%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019%5DSecret/</url>
+    <url>/2021/11/14/%5B%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98%202019%5DSecret/</url>
     <content><![CDATA[<p>​        这个题主要考查的是php封装协议。本人小白一个，有错希望大佬指出，如有更好的方法欢迎交流。</p>
 <span id="more"></span>
 
